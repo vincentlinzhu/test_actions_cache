@@ -31,6 +31,7 @@ jobs:
 
       - name: Run your build step
         run: |
+          ls
           mv hello_world.py ./data/
           python ./data/hello_world.py
 
