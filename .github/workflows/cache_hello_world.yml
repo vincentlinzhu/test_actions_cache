@@ -24,7 +24,6 @@ jobs:
       - name: Print "steps.adam.outputs.cache-hit != 'true'"
         run: |
           echo "Cache Hit Value:"  ${{ steps.adam.outputs.cache-hit }}
-          echo "Outputs:"  ${{ toJson(steps.adam.outputs) }}
 
       - name: Run your build step
         if: steps.adam.outputs.cache-hit != 'true'
