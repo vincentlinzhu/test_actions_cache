@@ -14,15 +14,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Cache file
+      - name: Cache Dataset
         uses: actions/cache@v3
         with:
           path: hello_world.py  # Specify the path to the file you want to cache
           key: ${{ runner.os }}-${{ hashFiles('./hello_world.py') }}  # Cache key based on the operating system
 
-      - name: Print "steps.cache-dataset.outputs.cache-hit"
-        run: echo "Cache Hit Value:"  ${{ steps.cache-dataset.outputs.cache-hit }}
+      - name: Print "steps['Cache Dataet'].outputs.cache-hit != 'true'"
+        run: |
+        echo "Cache Hit Value:"  ${{ steps['Cache Dataet'].outputs.cache-hit }}
+        echo "Outputs:"  ${{ toJson(steps['Cache Dataet'].outputs) }}
 
       - name: Run your build step
-        if: steps.cache-dataset.outputs.cache-hit != 'true'
+        if: steps['Cache Dataet'].outputs.cache-hit != 'true'
         run: python hello_world.py
