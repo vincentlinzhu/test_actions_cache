@@ -27,4 +27,7 @@ jobs:
 
       - name: Run your build step
         if: steps.adam.outputs.cache-hit != 'true'
-        run: python hello_world.py
+        run: |
+          mv hello_world.py ./data/
+          cd data
+          python hello_world.py
