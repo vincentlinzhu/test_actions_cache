@@ -21,7 +21,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('./hello_world.py') }}  # Cache key based on the operating system
 
       - name: Print "steps.cache-dataset.outputs.cache-hit"
-        run: echo steps.cache-dataset.outputs.cache-hit
+        run: echo ${{ steps.cache-dataset.outputs.cache-hit }}
 
       - name: Run your build step
         if: steps.cache-dataset.outputs.cache-hit != 'true'
