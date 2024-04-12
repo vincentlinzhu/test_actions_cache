@@ -28,5 +28,4 @@ jobs:
       - name: Run your build step
         run: |
           mv hello_world.py ./data/
-          cd data
-          python hello_world.py
+          python ./data/hello_world.py
