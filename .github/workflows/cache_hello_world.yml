@@ -18,7 +18,7 @@ jobs:
         uses: actions/cache@v3
         id: adam
         with:
-          path: hello_world.py  # Specify the path to the file you want to cache
+          path: ./data/hello_world.py  # Specify the path to the file you want to cache
           key: ${{ runner.os }}-${{ hashFiles('./hello_world.py') }}  # Cache key based on the operating system
 
       - name: Print "steps.adam.outputs.cache-hit != 'true'"
@@ -26,7 +26,6 @@ jobs:
           echo "Cache Hit Value:"  ${{ steps.adam.outputs.cache-hit }}
 
       - name: Run your build step
-        if: steps.adam.outputs.cache-hit != 'true'
         run: |
           mv hello_world.py ./data/
           cd data
