@@ -31,8 +31,8 @@ jobs:
 
       - name: Run your build step
         run: |
-          ls
           mv hello_world.py ./data/
+          ls
           python ./data/hello_world.py
 
       - name: Post Cache Dataset
