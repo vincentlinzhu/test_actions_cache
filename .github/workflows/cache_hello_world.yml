@@ -18,8 +18,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: hello_world.py  # Specify the path to the file you want to cache
-          key: ${{ runner.os }}- # Cache key based on the operating system
+          key: ${{ runner.os }}-${{ hashFiles('./hello_world.py') }}  # Cache key based on the operating system
 
       - name: Run your build step
+        run: echo steps.cache-dataset.outputs.cache-hit
         if: steps.cache-dataset.outputs.cache-hit != 'true'
         run: python hello_world.py
