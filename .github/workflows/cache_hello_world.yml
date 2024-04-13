@@ -22,7 +22,11 @@ jobs:
         run: |
           mv hello_world.py ./data/
           ls
-          python ./data/hello_world.py
+          cd data
+          pwd
+
+      - name: run pwd
+        run: pwd
 
       - name: Cache Dataset
         uses: actions/cache@v3
